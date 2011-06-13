@@ -9,7 +9,11 @@ module Foreman
     end
 
     def to_s
-      "#{name}: #{value}"
+      "#{name} => #{value}"
+    end
+
+    def <=> other
+     name <=> other.name
     end
   end
 end

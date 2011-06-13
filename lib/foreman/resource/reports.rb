@@ -1,12 +1,8 @@
 module Foreman
-  class Reports < Resource
-
-    def path
-      "/reports"
-    end
+  class Reports < Collection
 
     def list(filter = "")
-      get(filter).map do |r|
+      super(filter).map do |r|
         Report.new(r["report"])
       end
     end

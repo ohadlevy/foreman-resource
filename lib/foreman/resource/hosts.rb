@@ -1,12 +1,8 @@
 module Foreman
-  class Hosts < Resource
-
-    def path
-      "/hosts"
-    end
+  class Hosts < Collection
 
     def list(filter = "")
-      get(filter).map{|h| Host.new(opts.merge(:name => h.to_s))}
+      super(filter).map{|h| Host.new(opts.merge(:name => h.to_s))}
     end
 
   end

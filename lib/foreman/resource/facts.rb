@@ -1,5 +1,5 @@
 module Foreman
-  class Facts < Resource
+  class Facts < Collection
 
     def path
       "/fact_values"
@@ -8,12 +8,12 @@ module Foreman
     def list(filter = "")
       response = []
 
-      get(filter).each do |host, facts|
+      super(filter).each do |host, facts|
         facts.each do |name, value|
          response << Fact.new({:name => name, :value => value, :host => host})
         end
       end
-      response
+      response.sort
     end
 
   end

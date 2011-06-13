@@ -17,15 +17,16 @@ module Foreman
     end
 
     def facts
-      Facts.new(opts).list("?search = host = #{name}")
+      Facts.new(opts).list("host = #{name}")
     end
 
     def reports
-      Reports.new(opts).list("?search = host = #{name}")
+      Reports.new(opts).list("host = #{name}")
     end
 
     def lastreport
       Report.new(get("reports/last")["report"])
+    rescue RestClient::ResourceNotFound
     end
   end
 end
