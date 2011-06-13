@@ -1,0 +1,63 @@
+= Foreman Resource
+
+Ruby Objects on top of Foremans restful API
+
+Foreman is located at http://theforeman.org
+
+== Note
+
+This is a quick hack, you should not consider it anything but experimental right now
+But I wanted to share the idea already with others
+
+== DISCLAIMER
+
+this is alpha sofware . Don't trust it:)
+
+== Contributing
+
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== RDOC
+
+for full API please visit http://rdoc.info/github/ohadlevy/foreman-resource
+
+== Examples
+
+   opts = {:url => "http://0.0.0.0:3000", :user => "admin", :password => "changeme"}
+   
+   # Generic resource example
+   foreman = Foreman::Resource.new(opts)
+   puts foreman.get("hosts")
+   
+	 # Hosts collection object
+   hosts = Foreman::Hosts.new(opts)
+   puts hosts.list
+   # you can even apply filters
+   host = hosts.list("?search=name ~ g").first
+
+	 #note that you would get a Host object
+   
+	 # see host facts
+   puts "querying for #{host} facts"
+   p host.facts
+
+
+== Copyright
+Copyright (c) 2011 Ohad Levy
+
+This program and entire repository is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
