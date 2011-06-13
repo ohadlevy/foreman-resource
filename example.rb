@@ -6,14 +6,10 @@ require "foreman"
 
 opts = {:url => "http://0.0.0.0:3000", :user => "admin", :password => "changeme"}
 
-# Generic resource examp
-foreman = Foreman::Resource.new(opts)
-puts foreman.get("hosts")
-
 hosts = Foreman::Hosts.new(opts)
 puts hosts.list
 
-host = hosts.list("?search=name ~ g").first
+host = hosts.list("name ~ g").first
 
 puts "querying for #{host} facts"
 puts host.facts

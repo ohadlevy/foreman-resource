@@ -11,6 +11,8 @@ module Foreman
       @resource =  RestClient::Resource.new(url, {:user => user, :password =>  password, :timeout => 60, :open_timeout => 10, :headers => headers})
     end
 
+    protected
+
     def opts
       {:url => url, :user => user, :password => password}
     end
@@ -26,6 +28,11 @@ module Foreman
     def get(p = "")
       url = p.empty? ? path : "#{path}/#{p}"
       JSON.parse resource[URI.escape(url)].get.body
+    end
+
+    def search q
+      return "" if q.nil? or q.empty?
+      "?search=#{q}"
     end
   end
 end
