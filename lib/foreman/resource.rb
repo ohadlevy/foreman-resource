@@ -4,9 +4,9 @@ module Foreman
     attr_reader :user, :password, :url, :resource
 
     def initialize opts = {}
-      @user = opts[:user] || raise("Must provide User")
+      @user     = opts[:user]     || raise("Must provide User")
       @password = opts[:password] || raise("Must provide Password")
-      @url = opts[:url] || raise("Must provide URL")
+      @url      = opts[:url]      || raise("Must provide URL")
 
       @resource =  RestClient::Resource.new(url, {:user => user, :password =>  password, :timeout => 60, :open_timeout => 10, :headers => headers})
     end

@@ -27,24 +27,7 @@ for full API please visit http://rdoc.info/github/ohadlevy/foreman-resource
 
 == Examples
 
-   opts = {:url => "http://0.0.0.0:3000", :user => "admin", :password => "changeme"}
-   
-   # Generic resource example
-   foreman = Foreman::Resource.new(opts)
-   puts foreman.get("hosts")
-   
-	 # Hosts collection object
-   hosts = Foreman::Hosts.new(opts)
-   puts hosts.list
-   # you can even apply filters
-   host = hosts.list("?search=name ~ g").first
-
-	 #note that you would get a Host object
-   
-	 # see host facts
-   puts "querying for #{host} facts"
-   p host.facts
-
+see example.rb
 
 == Copyright
 Copyright (c) 2011 Ohad Levy
