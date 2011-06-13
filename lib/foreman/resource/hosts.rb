@@ -3,10 +3,6 @@ require 'foreman/resource'
 module Foreman
   class Hosts < Resource
 
-    def initialize opts = {}
-      super(opts)
-    end
-
     def path
       "/hosts"
     end

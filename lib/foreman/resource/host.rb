@@ -1,6 +1,3 @@
-require 'foreman/resource'
-require 'foreman/resource/hosts'
-
 module Foreman
   class Host < Resource
 
@@ -20,7 +17,7 @@ module Foreman
     end
 
     def facts
-      get("facts")
+      Facts.new(opts).list("?search = host = #{name}")
     end
 
     def reports

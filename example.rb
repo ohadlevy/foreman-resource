@@ -11,8 +11,8 @@ foreman = Foreman::Resource.new(opts)
 puts foreman.get("hosts")
 
 hosts = Foreman::Hosts.new(opts)
-puts hosts.list.map
+puts hosts.list
 host = hosts.list("?search=name ~ g").first
 
 puts "querying for #{host} facts"
-p host.facts
+puts host.facts
