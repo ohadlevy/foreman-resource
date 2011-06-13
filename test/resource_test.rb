@@ -1,7 +1,5 @@
 class Foreman::ResourceTest < Test::Unit::TestCase
   def setup
-    opts = {:url => "http://0.0.0.0:3000", :user => "admin", :password => "changeme"}
-
     @resource = Foreman::Resource.new(opts)
   end
 

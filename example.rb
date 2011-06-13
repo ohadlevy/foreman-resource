@@ -18,3 +18,7 @@ puts "querying host reports"
 puts host.reports
 
 puts host.lastreport
+
+
+hg = Foreman::Hostgroups.new(opts).list
+puts hg.first
