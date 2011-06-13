@@ -10,5 +10,7 @@ module Foreman
   autoload :Hosts, "foreman/resource/hosts"
   autoload :Facts, "foreman/resource/facts"
   autoload :Fact, "foreman/resource/fact"
+  autoload :Reports, "foreman/resource/reports"
+  autoload :Report, "foreman/resource/report"
 
 end

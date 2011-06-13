@@ -16,3 +16,8 @@ host = hosts.list("?search=name ~ g").first
 
 puts "querying for #{host} facts"
 puts host.facts
+
+puts "querying host reports"
+puts host.reports
+
+puts host.lastreport

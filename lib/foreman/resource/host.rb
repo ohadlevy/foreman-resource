@@ -21,7 +21,11 @@ module Foreman
     end
 
     def reports
-      get("reports")
+      Reports.new(opts).list("?search = host = #{name}")
+    end
+
+    def lastreport
+      Report.new(get("reports/last")["report"])
     end
   end
 end
