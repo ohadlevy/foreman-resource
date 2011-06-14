@@ -1,6 +1,8 @@
 module Foreman
   class Hypervisor < Resource
 
+    autoload :Guest, "foreman/resource/guest"
+
     attr_reader :name, :kind, :uri
 
     def self.all(filter = "")
@@ -22,5 +24,8 @@ module Foreman
       name
     end
 
+    def guests
+      Hypervisor::Guest.all({:hypervisor => name})
+    end
   end
 end

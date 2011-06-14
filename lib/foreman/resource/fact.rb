@@ -27,8 +27,5 @@ module Foreman
       "#{name} => #{value}"
     end
 
-    def <=> other
-      name <=> other.name
-    end
   end
 end

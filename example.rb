@@ -28,3 +28,4 @@ hg = Foreman::Hostgroup.all
 puts hg.first
 
 puts hypervisors = Foreman::Hypervisor.all
+puts hypervisors.first.guests.map(&:pp)

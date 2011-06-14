@@ -46,5 +46,9 @@ module Foreman
       self.class.get url
     end
 
+    def <=> other
+      to_s <=> other.to_s
+    end
+
   end
 end
