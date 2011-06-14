@@ -16,5 +16,8 @@ module Foreman
     def to_s
       "#{host}: #{reported_at} => #{summary}"
     end
+    def <=> other
+      reported_at <=> other.reported_at
+    end
   end
 end

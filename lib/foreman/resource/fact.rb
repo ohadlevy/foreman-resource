@@ -13,7 +13,7 @@ module Foreman
     end
 
     def <=> other
-     name <=> other.name
+      name <=> other.name
     end
   end
 end
