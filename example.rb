@@ -6,10 +6,14 @@ require "foreman"
 
 opts = {:url => "http://0.0.0.0:3000", :user => "admin", :password => "changeme"}
 
-hosts = Foreman::Hosts.new(opts)
-puts hosts.list
+Foreman::Resource.connect(opts)
 
-host = hosts.list("name ~ g").first
+hosts = Foreman::Host.all
+
+puts hosts
+
+host = Foreman::Host.all("name ~ g").first
+puts host
 
 puts "querying for #{host} facts"
 puts host.facts
@@ -20,5 +24,5 @@ puts host.reports
 puts host.lastreport
 
 
-hg = Foreman::Hostgroups.new(opts).list
+hg = Foreman::Hostgroup.all
 puts hg.first

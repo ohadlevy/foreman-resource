@@ -1,7 +1,11 @@
 module Foreman
-  class Hostgroup
+  class Hostgroup < Resource
 
     attr_reader :name, :id
+
+    def self.all(filter = "")
+      super(filter).map {|hg| Hostgroup.new(hg["hostgroup"])}
+    end
 
     def initialize opts = {}
       opts.each do |k,v|
@@ -18,12 +22,16 @@ module Foreman
       "/hostgroups/#{id}"
     end
 
+    def rid
+      id
+    end
+
     def to_s
       name
     end
 
     def hosts
-      Hosts.new(opts).list("hostgroup = #{name}")
+      Host.all("hostgroup = #{name}")
     end
 
   end
