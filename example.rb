@@ -26,3 +26,5 @@ puts host.lastreport
 
 hg = Foreman::Hostgroup.all
 puts hg.first
+
+puts hypervisors = Foreman::Hypervisor.all
